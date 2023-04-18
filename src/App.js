@@ -9,6 +9,7 @@ class App extends Component {
     // the state is always an object
     this.state = {
       coins: [],
+      searchField: "",
     };
 
     // constructor gets called first
@@ -32,17 +33,26 @@ class App extends Component {
     );
     const data = await req.json();
     // console.log(data);
-    this.setState(
-      () => {
-        return { coins: data.data.coins };
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState(() => {
+      return { coins: data.data.coins };
+    });
   }
 
+  onSearchChange = (event) => {
+    const searchField = event.target.value.toLocaleLowerCase();
+
+    this.setState(() => {
+      return { searchField: searchField };
+    });
+  };
+
   render() {
+    const { coins, searchField } = this.state;
+    const { onSearchChange } = this;
+
+    const filteredCoins = coins.filter((coin) => {
+      return coin.name.toLocaleLowerCase().includes(searchField);
+    });
     // gets called second with empty, initial state, THEN component gets MOUNTED
     // render gets called twice bcs we update the state with setState in componentDidMount()
     // console.log("2");
@@ -52,11 +62,9 @@ class App extends Component {
           className="search-box"
           type="text"
           placeholder="seach coins"
-          onChange={(event) => {
-            console.log(event.target.value);
-          }}
+          onChange={onSearchChange}
         />
-        {this.state.coins.map((coin) => {
+        {filteredCoins.map((coin) => {
           return (
             <div key={coin.uuid}>
               <h1>{coin.name}</h1>
