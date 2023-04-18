@@ -1,5 +1,6 @@
 import "./App.css";
 import { Component } from "react";
+import CardList from "./components/card-list/card-list.component";
 
 class App extends Component {
   // local state
@@ -64,13 +65,8 @@ class App extends Component {
           placeholder="seach coins"
           onChange={onSearchChange}
         />
-        {filteredCoins.map((coin) => {
-          return (
-            <div key={coin.uuid}>
-              <h1>{coin.name}</h1>
-            </div>
-          );
-        })}
+
+        <CardList coins={filteredCoins} />
       </div>
     );
   }
