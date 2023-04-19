@@ -1,6 +1,8 @@
 import "./App.css";
 import { Component } from "react";
 import CardList from "./components/card-list/card-list.component";
+import SearchBox from "./components/search-box/search-box.component";
+import "./App.css";
 
 class App extends Component {
   // local state
@@ -59,13 +61,11 @@ class App extends Component {
     // console.log("2");
     return (
       <div className="App">
-        <input
-          className="search-box"
-          type="text"
-          placeholder="seach coins"
-          onChange={onSearchChange}
+        <SearchBox
+          onChangeHandler={onSearchChange}
+          placeholder="search coins"
+          className="coins-search-box"
         />
-
         <CardList coins={filteredCoins} />
       </div>
     );
