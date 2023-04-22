@@ -52,7 +52,7 @@ class App extends Component {
   render() {
     const { coins, searchField } = this.state;
     const { onSearchChange } = this;
-
+    console.log(this.state);
     const filteredCoins = coins.filter((coin) => {
       return coin.name.toLocaleLowerCase().includes(searchField);
     });

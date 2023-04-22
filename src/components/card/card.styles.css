@@ -1,0 +1,45 @@
+.card-container {
+  border: 1px solid #333;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #111;
+}
+.card-container:link,
+.card-container:active,
+.card-container:visited {
+  color: #fff;
+  text-decoration: none;
+}
+.card-img {
+  width: 40px;
+  height: auto;
+}
+.card-name {
+  font-size: 1.1rem;
+  color: #212121;
+  padding: 0.3rem;
+  border-radius: 5px;
+  background-color: #fff;
+  font-weight: 700;
+}
+.card-price {
+  color: #212121;
+  padding: 0.3rem;
+  border-radius: 5px;
+  background-color: #fff;
+  font-weight: 600;
+  letter-spacing: 1.25px;
+}
+.change-negative {
+  color: #df6363;
+}
+.change-positive {
+  color: #5fefb3;
+}
+.no-result {
+  font-size: 2rem;
+  color: #fff;
+}
